@@ -1,6 +1,6 @@
 function [data]=depthcorrect(data,hole,varargin)
 
-if nargin>=2
+if nargin>2
 	plotme=1;
 else
 	plotme=0;
