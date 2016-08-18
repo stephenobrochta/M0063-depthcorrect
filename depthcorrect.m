@@ -27,7 +27,7 @@ end
 
 x_corr=[];
 for i=1:length(x)
-	x_corr=[x_corr; interp1(d_orig(:,core(i)),d_corr(:,core(i)),x(i))];
+	x_corr=[x_corr; interp1(d_orig(:,core(i)),d_corr(:,core(i)),x(i)) (s(core(i),3)*.1)];
 	if plotme==1;
 		plusonesig=d_corr(:,core(i))+(s(core(i),3)*.1);
 		plusonesig(plusonesig>mbsf_bot_corr(core(i)))=mbsf_bot_corr(core(i));
@@ -38,7 +38,7 @@ for i=1:length(x)
 		plot(d_orig(:,core(i)),d_corr(:,core(i)))
 		plot(d_orig(:,core(i)),plusonesig)
 		plot(d_orig(:,core(i)),minusonesig)
-		plot(x(i),x_corr(i),'or')
+		plot(x(i),x_corr(i,1),'or')
 		axis tight
 		xlabel('Depth (mbsf)')
 		ylabel('Adjusted Depth (ambsf)')
@@ -50,5 +50,4 @@ for i=1:length(x)
 	end
 end
 
-x_corr=[x_corr-(x_corr*.1) x_corr x_corr+(x_corr*.1)];
 data=[x_corr data(:,3:end)];
