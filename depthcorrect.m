@@ -1,5 +1,13 @@
 function [data]=depthcorrect(data,hole,varargin)
 
+% specify depths (y values may be attached), 'hole' as string. add a 1  to plot
+%
+%[ambsf]=depthcorrect(data,'C',0)
+%returns ambsf for data from hole c and plots a figure showing the adjustment of each data point.
+%obviously plotting with large datasets is a bad idea.
+%
+%returns ambsf, 1 sigma, and core top and bottom depths. These are needed as bound on 1 sigma.
+
 if nargin>2
 	plotme=1;
 else
@@ -27,7 +35,7 @@ end
 
 x_corr=[];
 for i=1:length(x)
-	x_corr=[x_corr; interp1(d_orig(:,core(i)),d_corr(:,core(i)),x(i)) (s(core(i),3)*.1)];
+	x_corr=[x_corr; interp1(d_orig(:,core(i)),d_corr(:,core(i)),x(i)) (s(core(i),3)*.1) mbsf_top(core(i)) mbsf_bot_corr(core(i))];
 	if plotme==1;
 		plusonesig=d_corr(:,core(i))+(s(core(i),3)*.1);
 		plusonesig(plusonesig>mbsf_bot_corr(core(i)))=mbsf_bot_corr(core(i));
