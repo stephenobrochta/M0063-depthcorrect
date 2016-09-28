@@ -51,20 +51,20 @@ rec=s(:,4);
 mbsf_bot=mbsf_top+rec;
 
 %fit parameters
-a_mean=0.3330;
-b_mean=0.6437;
-c_mean=11.6602;
-d_mean=0.3631;
+a_mean=0.0858;
+b_mean=0.6430;
+c_mean=28.4859;
+d_mean=1.0715;
 
-a_minus=0.1203;
-b_minus=0.7501;
-c_minus=11.8222;
-d_minus=0.7065;
+a_minus=0.1400;
+b_minus=0.7392;
+c_minus=11.7234;
+d_minus=0.6535;
 
-a_plus=0.4857;
-b_plus=0.5016;
-c_plus=14.5016;
-d_plus=0.1844;
+a_plus=0.5382;
+b_plus=0.4845;
+c_plus=12.5718;
+d_plus=0.1257;
 
 fun=@(x,a,b,c,d,n) (a+b*log10((1/n)*c*x+d));
 ambsf=NaN(length(x),3);
