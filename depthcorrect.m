@@ -27,6 +27,16 @@ function [data,varargout]=depthcorrect(core,data,hole,varargin)
 %
 % Obviously plotting with large datasets is a bad idea.
 %
+% In supplement to:
+%
+% Obrochta, S.P., Andrén, T., Fazeka, S.Z., Lougheed, B. C., Snowball, I., yokoyama, Y.,
+% Miyairi, Y., Kondo, R., Kotilainen, A.T., Hyttinen, O., and Fehr, A., 2017. 
+% The undatables: Quantifying uncertainty in a highly expanded Late Glacial - Holocene 
+% sediment sequence recovered from the deepest Baltic Sea basin - IODP Site M0063.
+% Geochemistry, Geophysics, Geosystems
+%
+% http://dx.doi.org/10.1002/2016GC006697
+%
 % S.P. Obrochta, Sept. 15, 2016
 
 s=load(['private/63' upper(hole) 'summary.txt']);
